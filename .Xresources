@@ -39,3 +39,8 @@
 XTerm.VT100.renderFont: true
 XTerm.VT100.faceName: Courier
 XTerm.VT100.faceSize: 10
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgb
+Xft.hintstyle: hintfull
+Xft.dpi:       120
