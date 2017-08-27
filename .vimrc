@@ -35,10 +35,13 @@ Plugin 'scrooloose/nerdtree'
 call vundle#end()            " required
 
 """" NERDTree
-" Autostart NERDTree
-autocmd vimenter * NERDTree
+" Autostart NERDTree when no file spec
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Open hotkey
+map <C-n> :NERDTreeToggle<CR>
+
 
 """"""""""""""""""""""""""""""
 " General                    
