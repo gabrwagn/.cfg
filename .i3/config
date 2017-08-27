@@ -181,10 +181,10 @@ set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $border-color       $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+client.focused          $border-color       $bg-color          $text-color          $bar-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $bar-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $bar-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $bar-color
 
 # bar
 bar {
@@ -210,7 +210,7 @@ bindsym Mod4+l exec i3lock
 bindsym Mod1+space exec rofi -modi run -show run -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # set background
-exec_always feh --bg-fill /home/pi/Pictures/wallpaper.jpg
+exec_always feh --bg-fill /home/gabbe/Pictures/wallpaper.jpg
 
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used their favorite modifier (alt or windows)
@@ -223,3 +223,4 @@ exec_always feh --bg-fill /home/pi/Pictures/wallpaper.jpg
 exec i3-config-wizard
 exec compton
 exec xrdb ~/.Xresources
+exec setxkbmap -layout se
