@@ -85,6 +85,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
     alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+    alias wifi='wicd-curses'
+    alias byebye='shutdown now'
 fi
 
 # colored GCC warnings and errors
