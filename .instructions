@@ -1,0 +1,17 @@
+# add to .bashrc
+echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> .bashrc
+
+# run
+echo ".cfg" >> .gitignore
+
+# clone repo
+git clone --bare https://github.com/gabrwagn/.cfg.git $HOME/.cfg
+
+# checkout the repo
+config checkout
+
+# if it fails, backup and remove current config
+
+# untrack all files
+config config --local status.showUntrackedFiles no
+
