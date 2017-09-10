@@ -35,5 +35,4 @@ case $BLOCK_BUTTON in
     1) echo $(iwgetid -r) $QUALITY%;;
     *) echo " " ;;
 esac
-#echo $QUALITY% # full text
-#echo $QUALITY% # short text
+#echo " $(iwgetid -r) " 

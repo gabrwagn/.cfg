@@ -52,7 +52,9 @@ if ($status eq 'Discharging') {
     }
 
 } elsif ($status eq 'Charging') {
-	$full_text .= ' ';
+    $full_text .= ' ';
+} elsif ($status eq 'Full') {
+    $full_text .= ' ';
 }
 
 
@@ -61,7 +63,7 @@ if ($acpi =~ /(\d\d:\d\d):/) {
 	$remaining .= "($1)";
 }
 
-$full_text .= ($ENV{BLOCK_BUTTON} == 1)? " $percent% $remaining": " ";
+$full_text .= ($ENV{BLOCK_BUTTON} == 1)? " $percent% $remaining": "  ";
 #$full_text .= " $percent%";
 #$short_text = $full_text;
 
@@ -81,10 +83,8 @@ if ($status eq 'Discharging') {
 	if ($percent < 5) {
 		exit(33);
 	}
-} elsif($status eq 'Charging') {
-    if ($percent > 99) {
-        print "#77dd77\n";
-    }
+} elsif($status eq 'Full') {
+    print "#77dd77\n";
 }
 
 

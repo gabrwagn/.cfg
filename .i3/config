@@ -11,7 +11,7 @@
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:System San Francisco Display 16
+font pango:System San Francisco Display 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -30,6 +30,11 @@ set $up k
 set $down j
 set $left h
 set $right l
+
+# gaps
+gaps inner 15
+gaps outer 0
+smart_gaps on
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -183,11 +188,11 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
 # window title bar size
-new_window pixel 1
+for_window [class="^.*"] border pixel 5
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $border-color       $bg-color          $text-color          $bar-color
+client.focused          $border-color       $bar-color         $text-color          $bar-color
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $bar-color
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $bar-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $bar-color
@@ -196,12 +201,13 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bar {
   	status_command i3blocks -c ~/.i3/i3blocks.conf
 	position top
+    height 42
     strip_workspace_numbers yes
 	colors {
 		background $bg-color
 	    	separator #757575
 		#                  border             background         text
-		focused_workspace  $2b2f38            $bg-color          $text-color
+		focused_workspace  $inactive-bg-color $text-color        $bg-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
    	}
@@ -217,21 +223,27 @@ for_window [class="Spotify"]move to workspace $workspace4
 ##### CUSTOM BINDINGS ######
 
 # lock screen
-bindsym Mod4+l exec i3lock -c 2b2f38
+bindsym Mod4+l exec i3lock -f -c 2b2f38
 # start dmenu (a program launcher)
 bindsym Mod1+space exec rofi -show run -lines 5 -font "System San Franfisco Display 18"
 # increase brightness
-bindsym Mod4+k exec xbacklight -inc 5; exec notify-send Brightness $(python ~/.i3/scripts/brightness.py)
+bindsym Mod4+k exec xbacklight -inc 5; exec pkill -RTMIN+10 i3blocks
 # decrease brightness
-bindsym Mod4+j exec xbacklight -dec 5; exec notify-send Brightness $(python ~/.i3/scripts/brightness.py)
+bindsym Mod4+j exec xbacklight -dec 5; exec pkill -RTMIN+10 i3blocks
+# increase volume
+bindsym Mod4+i exec amixer -D pulse set Master 5%+; exec pkill -RTMIN+10 i3blocks
+# decrease volume
+bindsym Mod4+u exec amixer -D pulse set Master 5%-; exec pkill -RTMIN+10 i3blocks
+# toggle sound
+bindsym Mod4+m exec amixer -D pulse set Master toggle; exec pkill -RTMIN+10 i3blocks
 
 ##### AUTOSTART #####
 #
 # Start compton
-exec compton
+exec compton -b -c
 # Make sure xresources are loaded
 exec xrdb ~/.Xresources
 # Set swedish keyboard
 exec setxkbmap -layout se
 # set background
-exec_always feh --bg-fill /home/gabbe/Pictures/wallpaper.jpg
+exec_always feh --bg-fill ~/Pictures/wallpaper.jpg
