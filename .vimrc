@@ -13,25 +13,10 @@ call vundle#begin()
 "
 " " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-"
-" " The following are examples of different formats supported.
-" " Keep Plugin commands between vundle#begin/end.
-" " plugin on GitHub repo
 Plugin 'scrooloose/nerdtree'
-" " plugin from http://vim-scripts.org/vim/scripts.html
-" " Plugin 'L9'
-" " Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" " git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" " The sparkup vim script is in a subdirectory of this repo called vim.
-" " Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" " Install L9 and avoid a Naming conflict if you've already installed a
-" " different version somewhere else.
-" " Plugin 'ascenator/L9', {'name': 'newL9'}
-"
-" " All of your Plugins must be added before the following line
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
 call vundle#end()            " required
 
 """" NERDTree
@@ -42,6 +27,18 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Open hotkey
 map <C-n> :NERDTreeToggle<CR>
 
+""""""""""""""""""""""""""""""
+" Airline
+""""""""""""""""""""""""""""""
+
+set guifont='~/.fonts/Powerline.ttf'
+let g:airline_powerline_fonts=1
+let g:airline_theme='powerlineish'
+let g:airline_enable_branch=1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
 """"""""""""""""""""""""""""""
 " General                    
@@ -50,6 +47,7 @@ map <C-n> :NERDTreeToggle<CR>
 " Enable filetype plugins
 filetype indent on
 filetype plugin on
+set encoding=utf-8
 
 command W w !sudo tee % > /dev/null
 
@@ -94,6 +92,9 @@ set number
 
 " Enable syntax highlighting
 syntax enable
+" Enable 256 colors
+"
+set t_Co=256
 
 """""""""""""""""""""""""""""
 " Text, tab and indent
