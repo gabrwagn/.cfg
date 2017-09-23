@@ -17,6 +17,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+Plugin 'Yggdroot/indentLine'
+
 call vundle#end()            " required
 
 """" NERDTree
@@ -27,18 +29,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Open hotkey
 map <C-n> :NERDTreeToggle<CR>
 
-""""""""""""""""""""""""""""""
-" Airline
-""""""""""""""""""""""""""""""
-
-set guifont='~/.fonts/Powerline.ttf'
-let g:airline_powerline_fonts=1
-let g:airline_theme='powerlineish'
-let g:airline_enable_branch=1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
 
 """"""""""""""""""""""""""""""
 " General                    
@@ -134,3 +124,22 @@ endfun
 if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
+
+""""""""""""""""""""""""""""""
+" Airline
+""""""""""""""""""""""""""""""
+
+set guifont='~/.fonts/Powerline.ttf'
+let g:airline_powerline_fonts=1
+let g:airline_theme='powerlineish'
+let g:airline_enable_branch=1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
+""""""""""""""""""""""""""""""
+" IndentLine
+""""""""""""""""""""""""""""""
+
+
