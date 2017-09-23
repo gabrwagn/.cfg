@@ -92,7 +92,7 @@ bindsym Mod1+w layout tabbed
 bindsym Mod1+e layout toggle split
 
 # toggle tiling / floating
-#bindsym Mod1+Shift+space floating toggle
+bindsym Mod1+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 #bindsym Mod1+space focus mode_toggle
@@ -223,6 +223,7 @@ assign [class="vlc"] $workspace3
 assign [class="Discord"] $workspace5
 for_window [class="Spotify"]move to workspace $workspace4
 
+for_window [class="vlc"] sticky enable
 ##### CUSTOM BINDINGS ######
 
 # lock screen
