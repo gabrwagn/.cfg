@@ -1,0 +1,6 @@
+#!/bin/sh
+
+TIME=$(date "+%H:%M ")
+DATE=$(date "+%a %b, %d ")
+
+echo "$(printf '%b' "") $TIME  $(printf '%b' "") $DATE"
