@@ -1,9 +1,0 @@
-#!/bin/sh
-
-path="/sys/class/backlight/intel_backlight"
-BRIGHTNESS=$(less "$path/brightness")
-MAX_BRIGHTNESS=$(less "$path/max_brightness") 
-
-percent="scale=2 ; $BRIGHTNESS / $MAX_BRIGHTNESS"
-percent=$(echo "$percent" | bc)
-echo "$(echo "$percent" | sed "s/.//" | sed "s/^0/ /")%"
