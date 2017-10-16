@@ -18,6 +18,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Yggdroot/indentLine'
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()            " required
 
@@ -40,6 +41,7 @@ filetype plugin on
 set encoding=utf-8
 
 command W w !sudo tee % > /dev/null
+
 
 """""""""""""""""""""""""""""
 " Interface
@@ -85,6 +87,12 @@ syntax enable
 " Enable 256 colors
 "
 set t_Co=256
+
+" Colorscheme
+set background=dark
+colorscheme gruvbox-custom
+highlight Normal ctermfg=grey ctermbg=black
+
 
 """""""""""""""""""""""""""""
 " Text, tab and indent
