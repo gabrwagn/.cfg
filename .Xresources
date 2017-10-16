@@ -1,3 +1,4 @@
 #include ".Xresources.d/xterm"
+#include ".Xresources.d/wal"
 #include ".Xresources.d/rofi"
 
