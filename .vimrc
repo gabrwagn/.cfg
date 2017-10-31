@@ -19,6 +19,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Yggdroot/indentLine'
 Plugin 'morhetz/gruvbox'
+Plugin 'neovimhaskell/haskell-vim'
 
 call vundle#end()            " required
 
