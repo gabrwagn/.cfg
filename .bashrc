@@ -72,7 +72,7 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
+PROMPT_DIRTRIM=2
 #if [ -f `which powerline-daemon` ]; then
 #  powerline-daemon -q
 #  POWERLINE_BASH_CONTINUATION=1
@@ -115,3 +115,4 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
