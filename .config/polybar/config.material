@@ -44,7 +44,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = iosevka:pixelsize=19;5
+font-0 = dejavu:pixelsize=19;5
 font-1 = unifont:fontformat=truetype:size=14:antialias=false;3
 font-2 = siji:pixelsize=15;1
 font-3 = fontawesome-webfont:pixelsize=19;4
@@ -164,8 +164,8 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 [module/spotify]
 type = custom/script
-#exec = ~/.config/polybar/spotify.sh "   %artist% - %title%" 
-exec = ~/.config/polybar/spotify.py
+exec = ~/.config/polybar/spotify.sh "   %artist% - %title%" 
+#exec = ~/.config/polybar/spotify.py
 tail = true
 interval = 2
 
@@ -277,7 +277,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = "  %a %d/%m"
+date = " %a %d/%m"
 date-alt = " %Y-%m-%d"
 
 time = "  %H:%M"
@@ -326,11 +326,17 @@ label-charging = %percentage%%
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+
 ramp-capacity-foreground = ${colors.foreground}
 
 label-discharging = %percentage%%
@@ -342,12 +348,15 @@ format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
 
-animation-charging-foreground = ${colors.foreground}
-animation-charging-framerate = 950
-animation-charging-0= 
-animation-charging-1= 
-animation-charging-2= 
-animation-charging-3= 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-5 = 
+animation-charging-6 = 
 
 [module/temperature]
 type = internal/temperature
@@ -375,7 +384,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open =
+label-open =
 label-open-foreground = ${colors.foreground}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
