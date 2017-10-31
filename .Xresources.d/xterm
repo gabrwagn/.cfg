@@ -1,8 +1,8 @@
 ! freetype
 XTerm.vt100.locale: true
 XTerm.VT100.renderFont: true
-!XTerm.VT100.faceName: Courier:size=11:antialise=false
-XTerm.VT100.faceName: dejavu sans mono for powerline:size=10:antialise=true
+XTerm.VT100.faceName: iosevka:size=11:antialise=false
+!XTerm.VT100.faceName: iosevka sans mono for powerline:size=10:antialise=true
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
