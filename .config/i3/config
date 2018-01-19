@@ -220,9 +220,10 @@ assign [class="Firefox"] $workspace2
 assign [class="mpv"] $workspace3
 assign [class="Discord"] $workspace6
 assign [class="Steam"] $workspace5
-for_window [class="Spotify"]move to workspace $workspace4
+for_window [class="Spotify"] move to scratchpad
 
 for_window [class="vlc"] sticky enable
+
 ##### CUSTOM BINDINGS ######
 
 # lock screen

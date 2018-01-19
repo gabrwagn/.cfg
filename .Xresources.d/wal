@@ -20,8 +20,10 @@ URxvt*borderColor:  [100]#030616
 *color1:  #5BA263
 *.color2: #DDAA5A
 *color2:  #DDAA5A
-*.color3: #F2A94F
-*color3:  #F2A94F
+!*.color3: #F2A94F
+!*color3:  #F2A94F
+*.color3: #030616
+*color3:  #030616
 *.color4: #C3BB64
 *color4:  #C3BB64
 *.color5: #115889
@@ -36,8 +38,10 @@ URxvt*borderColor:  [100]#030616
 *color9:  #5BA263
 *.color10: #DDAA5A
 *color10:  #DDAA5A
-*.color11: #F2A94F
-*color11:  #F2A94F
+!*.color11: #F2A94F
+!*color11:  #F2A94F
+*.color11: #030616
+*color11:  #030616
 *.color12: #C3BB64
 *color12:  #C3BB64
 *.color13: #115889
