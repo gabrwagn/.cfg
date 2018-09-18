@@ -1,0 +1,4 @@
+! freetype
+URxvt.font: xft:iosevka:size=11
+URxvt.scrollBar: false
+URxvt.externalBorder: 15
