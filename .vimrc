@@ -20,6 +20,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Yggdroot/indentLine'
 Plugin 'morhetz/gruvbox'
 Plugin 'neovimhaskell/haskell-vim'
+Plugin 'tmhedberg/SimpylFold'
 
 call vundle#end()            " required
 
@@ -30,6 +31,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Open hotkey
 map <C-n> :NERDTreeToggle<CR>
+
+" Open in new tab automatically
+let NERDTreeMapOpenInTab='\r'
 
 
 """"""""""""""""""""""""""""""
@@ -42,7 +46,7 @@ filetype plugin on
 set encoding=utf-8
 
 command W w !sudo tee % > /dev/null
-
+command Wq wq
 
 """""""""""""""""""""""""""""
 " Interface
@@ -150,5 +154,11 @@ let g:airline_symbols.space = "\ua0"
 """"""""""""""""""""""""""""""
 " IndentLine
 """"""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""
+" SimplyFold
+""""""""""""""""""""""""""""""
+let g:SimplyFold_docstring_preview = 1
+
 
 
