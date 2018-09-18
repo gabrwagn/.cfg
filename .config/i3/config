@@ -264,7 +264,7 @@ exec xrdb ~/.Xresources
 # Set swedish keyboard
 exec setxkbmap -layout se
 # set background
-exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/i3/bg.jpg
+exec_always --no-startup-id feh --bg-fill ~/.config/background/bg.jpg
 # start polybar
 exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 # start unclutter (autohide mouse)
