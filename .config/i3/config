@@ -36,14 +36,14 @@ set $right l
 gaps inner 9
 gaps outer 0
 #smart_gaps on
-smart_borders on
+#smart_borders on
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
 # start a terminal
 #bindsym Mod1+Return exec i3-sensible-terminal
-bindsym Mod1+Return exec xterm -b 15
+bindsym Mod1+Return exec urxvt
 
 # kill focused window
 bindsym Mod1+Shift+q kill
@@ -76,6 +76,10 @@ bindsym Mod1+Shift+Left move left
 bindsym Mod1+Shift+Down move down
 bindsym Mod1+Shift+Up move up
 bindsym Mod1+Shift+Right move right
+
+# move screens
+#bindsym Mod1+Ctrl+$left focus output left
+#bindsym Mod2+Ctrl+$right focus output right
 
 # split in horizontal orientation
 #bindsym Mod1+h split h
@@ -116,7 +120,7 @@ set $workspace2 "2:    "
 set $workspace3 "3:    "
 set $workspace4 "4:    "
 set $workspace5 "5:    "
-set $workspace6 "6:    "
+set $workspace6 "6:   "
 set $workspace7 "7: 7  "
 set $workspace8 "8: 8  "
 set $workspace9 "9: 9  "
@@ -163,16 +167,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym $right       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $left      resize grow width 10 px or 10 ppt
+        bindsym $right       resize shrink width 2 px or 2 ppt
+        bindsym $down       resize grow height 2 px or 2 ppt
+        bindsym $up         resize shrink height 2 px or 2 ppt
+        bindsym $left      resize grow width 2 px or 2 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
+        bindsym Left        resize shrink width 5 px or 5 ppt
+        bindsym Down        resize grow height 5 px or 5 ppt
+        bindsym Up          resize shrink height 5 px or 5 ppt
+        bindsym Right       resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -182,18 +186,20 @@ mode "resize" {
 bindsym Mod1+r mode "resize"
 
 
-set_from_resource $fg i3wm.color7
-set_from_resource $bg i3wm.color2
+set_from_resource $fg-nf i3wm.color0
+set_from_resource $fg i3wm.color15
+set_from_resource $bg i3wm.color0
+set_from_resource $bg-nf i3wm.color3
 
 # window title bar size
-#for_window [class="*"] border pixel 5
+for_window [class="*"] border pixel 5
 new_window pixel 0
 
 # window colors
 #                       border              background         text                 indicator
 
-client.focused          $bg                 $bg                $fg                   $bg
-client.unfocused        $bg                 $bg                $fg                   $bg
+client.focused          $bg                 $bg                $fg                   $fg
+client.unfocused        $bg                 $bg-nf             $fg-nf                $bg
 client.focused_inactive $bg                 $bg                $fg                   $bg
 client.urgent           $bg                 $bg                $fg                   $bg
 
@@ -221,7 +227,7 @@ assign [class="mpv"] $workspace3
 assign [class="Discord"] $workspace6
 assign [class="Steam"] $workspace5
 for_window [class="Spotify"] move to scratchpad
-
+for_window [instance="ncmscratch"] move to scratchpad
 for_window [class="vlc"] sticky enable
 
 ##### CUSTOM BINDINGS ######
@@ -243,13 +249,14 @@ bindsym XF86AudioLowerVolume exec modvolume down #; exec pkill -RTMIN+10 i3block
 # toggle sound
 bindsym XF86AudioMute exec modvolume * #; exec pkill -RTMIN+10 i3blocks
 # player play
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec mpc toggle; exec playerctl play-pause
+bindsym XF86AudioNext exec mpc next; exec playerctl next
+bindsym XF86AudioPrev exec mpc prev; exec playerctl previous
 bindsym Print exec scrot -e 'mv $fn /docs/pics/$fn' 
 
-##### AUTOSTART #####
-#
+bindsym Mod1+b exec --no-startup-id i3-msg 'scratchpad; exec xterm -e ncmpcpp;
+#### AUTOSTART #####
+
 # Start compton
 exec --no-startup-id compton --config ~/.config/compton.conf
 # Make sure xresources are loaded
@@ -257,7 +264,7 @@ exec xrdb ~/.Xresources
 # Set swedish keyboard
 exec setxkbmap -layout se
 # set background
-exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/i3/login.jpg
+exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/i3/bg.jpg
 # start polybar
 exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 # start unclutter (autohide mouse)
@@ -266,3 +273,7 @@ exec --no-startup-id unclutter
 exec --no-startup-id redshift
 # start dunst
 exec --no-startup-id sh $HOME/.config/dunst/launch
+# start ncmpcpp in scratchpad
+#exec --no-startup-id xterm -name ncmscratch -e ncmpcpp
+#
+#exec --no-startup-id systemctl --user start mopidy
