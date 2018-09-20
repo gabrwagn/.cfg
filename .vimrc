@@ -112,6 +112,8 @@ set smarttab
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
+" Remove 4 spaces on backspace after tab
+set softtabstop=4
 
 " Line break on 500 chars
 set lbr
@@ -124,6 +126,16 @@ set wrap "wrap lines
 """"""""""""""""""""""""""""""
 " Editing mappings
 """"""""""""""""""""""""""""""
+" for normal mode indent
+nnoremap <S-Tab> <<
+nnoremap <Tab> >>
+
+" for visual mode indent
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+" for insert mode
+inoremap <S-Tab> <C-d>
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
