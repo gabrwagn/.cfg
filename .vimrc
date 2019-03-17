@@ -17,10 +17,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
 Plugin 'Yggdroot/indentLine'
 Plugin 'morhetz/gruvbox'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'tmhedberg/SimpylFold'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'tikhomirov/vim-glsl'
 
 call vundle#end()            " required
 
@@ -130,12 +133,16 @@ set wrap "wrap lines
 nnoremap <S-Tab> <<
 nnoremap <Tab> >>
 
+
 " for visual mode indent
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
 " for insert mode
 inoremap <S-Tab> <C-d>
+
+" switch tab using ctrl tab (does not work)
+" noremap <C-Tab> gt
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()

@@ -10,5 +10,10 @@ alias pythonenv='pipenv run python'
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias sudo='sudo -E'
 alias torrentsweep='mv ~/docs/downloads/*.torrent ~/docs/torrents/.torrent/'
-alias ..='cd ..'
 alias proj='cd ~/docs/projects; ranger'
+alias bm='bashmount'
+alias wow='wine .wine/drive_c/Program\ Files/World\ of\ Warcraft\ 1.12/WoW.exe'
+alias bt="bluetoothctl"
+
+# SHAME ON YOU, USE ABSOLUTE PATHS, THIS IS YOUR PUNISHMENT
+alias rm='rm -i'
