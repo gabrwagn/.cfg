@@ -21,9 +21,10 @@ Plugin 'tpope/vim-commentary'
 Plugin 'Yggdroot/indentLine'
 Plugin 'morhetz/gruvbox'
 Plugin 'neovimhaskell/haskell-vim'
-Plugin 'tmhedberg/SimpylFold'
+" Plugin 'tmhedberg/SimpylFold'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'tikhomirov/vim-glsl'
+Plugin 'mcchrish/nnn.vim'
 
 call vundle#end()            " required
 
@@ -48,7 +49,8 @@ filetype indent on
 filetype plugin on
 set encoding=utf-8
 
-command W w !sudo tee % > /dev/null
+command WW w !sudo tee % > /dev/null
+command W w
 command Wq wq
 
 """""""""""""""""""""""""""""
@@ -60,7 +62,7 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 " Height of command bar
-set cmdheight=2
+set cmdheight=1
 
 " Ignore case when searching
 set ignorecase
@@ -94,12 +96,12 @@ set number
 syntax enable
 " Enable 256 colors
 "
-set t_Co=256
+" set t_Co=256
 
 " Colorscheme
 set background=dark
 colorscheme gruvbox-custom
-highlight Normal ctermfg=grey ctermbg=black
+" highlight Normal ctermfg=grey ctermbg=Black
 
 
 """""""""""""""""""""""""""""
@@ -177,7 +179,7 @@ let g:airline_symbols.space = "\ua0"
 """"""""""""""""""""""""""""""
 " SimplyFold
 """"""""""""""""""""""""""""""
-let g:SimplyFold_docstring_preview = 1
+" let g:SimplyFold_docstring_preview = 1
 
 
 
